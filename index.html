@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>SAMPANA MEDICLINIC AND LABORATORY</title>
+        <style>
+            :root {
+                --primary-color: #da291c;
+                --secondary-color: #e74c3c;
+                --accent-color: #e74c3c;
+                --background-color: #f4f4f4;
+                --text-color: #333;
+            }
+
+            body {
+                font-family: 'Arial', sans-serif;
+                line-height: 1.6;
+                margin: 0;
+                padding: 0;
+                background-color: var(--background-color);
+                color: var(--text-color);
+            }
+
+            header {
+                background-color: var(--primary-color);
+                padding: 1rem;
+                text-align: center;
+            }
+
+            .logo-container {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                margin-bottom: 1rem;
+            }
+
+            .logo {
+                max-width: 700px;
+                width: 100%;
+                height: auto;
+            }
+
+            .building {
+                max-width: 450px;
+                width: 100%;
+                height: auto;
+            }
+
+            .tagline {
+                color: #fff;
+                font-style: italic;
+                margin-top: 0.5rem;
+            }
+
+            .home {
+                align-items: center;
+            }
+
+            nav {
+                background-color: var(--secondary-color);
+                padding: 1rem;
+            }
+
+            nav ul {
+                list-style-type: none;
+                padding: 0;
+                margin: 0;
+                display: flex;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+
+            nav ul li {
+                margin: 0 15px;
+            }
+
+            nav ul li a {
+                color: #fff;
+                text-decoration: none;
+                font-weight: bold;
+                transition: color 0.3s ease;
+            }
+
+            nav ul li a:hover {
+                color: var(--accent-color);
+            }
+
+            nav ul li a:active,
+            nav ul li a:focus,
+            nav ul li a:visited {
+                color: #fff;
+            }
+
+            main {
+                max-width: 1200px;
+                margin: 2rem auto;
+                padding: 0 1rem;
+            }
+
+            section {
+                background-color: #fff;
+                border-radius: 8px;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                padding: 2rem;
+                margin-bottom: 2rem;
+            }
+
+            h2 {
+                color: var(--primary-color);
+                border-bottom: 2px solid var(--accent-color);
+                padding-bottom: 0.5rem;
+            }
+
+            .cta-button {
+                display: inline-block;
+                background-color: var(--accent-color);
+                color: #fff;
+                padding: 12px 24px;
+                text-decoration: none;
+                border-radius: 5px;
+                font-weight: bold;
+                transition: background-color 0.3s ease;
+            }
+
+            .cta-button:hover {
+                background-color: #c0392b;
+            }
+
+            footer {
+                background-color: var(--secondary-color);
+                color: #fff;
+                text-align: center;
+                padding: 1rem;
+                margin-top: 2rem;
+            }
+
+            @media (max-width: 768px) {
+                .logo {
+                    max-width: 450px;
+                }
+                .building {
+                    max-width: 450px;
+                }
+                nav ul li a:focus {
+                    outline: none;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <div class="logo-container">
+                <img src="assets/images/7.png" alt="Sampana Mediclinic Logo" class="logo" />
+                <p class="tagline">Committed to Caring since 2000.</p>
+            </div>
+        </header>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+        <main>
+            <section id="home">
+                <h2>Welcome to Sampana Mediclinic</h2>
+                <p>Sampana Mediclinic is committed to providing high-quality medical care with advanced diagnostic facilities.
+                    Our team of experienced doctors and staff are dedicated to your health and well-being.</p>
+                <a href="#contact" class="cta-button">Book an Appointment</a>
+            </section>
+            <section id="services">
+                <h2>Our Services</h2>
+                <ul>
+                    <li>General Checkup</li>
+                    <li>Clinical Laboratory</li>
+                    <li>X-ray</li>
+                    <li>Ultrasound</li>
+                    <li>2D-Echo</li>
+                    <li>ECG</li>
+                </ul>
+            </section>
+            <section id="about">
+                <h2>Location / Operating Hours</h2>
+                <p>South Supermarket Parking - McArthur Highway, Bulihan, Malolos Bulacan</p>
+                <p>Monday - Saturday</p>
+                <p>6:00 AM - 5:00 PM</p>
+            </section>
+            <section id="photo-album">
+                <h2>Our Facility</h2>
+                <div id="slideshow" style="position: relative; max-width: 450px; margin: 0 auto;">
+                    <img id="slideshow-img" src="assets/images/B.JPG" alt="Facility Image" style="width: 100%; height: auto;">
+                    <button onClick="prevSlide()" style="position: absolute; left: 10px; top: 50%; transform: translateY(-50%);">&#10094;</button>
+                    <button onClick="nextSlide()" style="position: absolute; right: 10px; top: 50%; transform: translate(-50%);">&#10095;</button>
+                </div>
+            </section>
+            <section id="contact">
+                <h2>Contact Us / Book an Appointment</h2>
+                <p>Phone: 09627522727 / 09671934111</p>
+                <p>Facebook: Sampana Mediclinic and Laboratory</p>
+                <p>Email: smcl.malolos@gmail.com</p>
+                <p>Address: South Supermarket Parking - McArthur Highway, Bulihan, Malolos Bulacan</p>
+            </section>
+        </main>
+        <footer>
+            <p>&copy; 2024 Sampana Mediclinic and Laboratory. All rights reserved.</p>
+        </footer>
+    </body>
+    <script>
+        let currentSlide = 0;
+        const slides = [
+            'assets/images/B.jpg',
+            'assets/images/B2.jpg',
+            'assets/images/B3.jpg',
+            'assets/images/R1.jpg',
+            'assets/images/R2.jpg',
+            'assets/images/R3.jpg',
+            'assets/images/R4.jpg',
+            'assets/images/R5.jpg',
+            'assets/images/R6.jpg',
+            'assets/images/R7.jpg',
+            'assets/images/R8.jpg',
+            'assets/images/R9.jpg',
+            'assets/images/D.jpg',
+            'assets/images/E.jpg'
+        ];
+
+        function showSlide(index) {
+            const img = document.getElementById('slideshow-img');
+            img.src = slides[index];
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+            showSlide(currentSlide);
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const slideshow = document.getElementById('slideshow');
+            let startX;
+
+            slideshow.addEventListener('touchstart', (e) => {
+                startX = e.touches[0].clientX;
+            });
+
+            slideshow.addEventListener('touchend', (e) => {
+                const endX = e.changedTouches[0].clientX;
+                if (startX - endX > 50) {
+                    nextSlide();
+                } else if (endX - startX > 50) {
+                    prevSlide();
+                }
+            });
+        })
+    </script>
+</html>
