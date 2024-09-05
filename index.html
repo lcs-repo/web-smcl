@@ -8,13 +8,13 @@
             :root {
                 --primary-color: #da291c;
                 --secondary-color: #e74c3c;
-                --accent-color: #e74c3c;
+                --accent-color: #e97c70;
                 --background-color: #f4f4f4;
                 --text-color: #333;
             }
 
             body {
-                font-family: 'Arial', sans-serif;
+                font-family: 'Helvetica', sans-serif;
                 line-height: 1.6;
                 margin: 0;
                 padding: 0;
@@ -341,14 +341,13 @@
             <div id="chat-body">
                 <div id="chat-messages" style="flex-grow: 1; overflow-y: auto; padding: 10px;"></div>
                 <div id="chat-input" style="display: flex; padding: 10px">
-                    <input type="text" id="user-message" class="chat-input-field">
+                    <input type="text" id="user-message" class="chat-input-field" placeholder="Type message here">
                     <button onclick="sendMessage()" class="chat-send-button">Send</button>
             </div>
         </div>
     </body>
 
     <script>
-
         // IMAGE SLIDER FUNCTIONALITY
         let currentSlide = 0;
         const slides = [
@@ -428,6 +427,7 @@
                     setTimeout(() => {
                         addMessage('Support', 'Thank you for your message po. Pwede po ba malaman ang pangalan at contact number po?');
                     }, 1000);
+                // If exactly three stacks, the following message will be added to the stack
                 } else if (chatMessages.children.length === 3 ) {
                     setTimeout(() => {
                         addMessage('Support', 'Automated message po ito, kapag po walang nagreply sa loob ng 2 mins. Magreply nalang po kami ng kasagutan sa number po ninyo. May karagdagang katanungan pa po sila?');
@@ -435,6 +435,7 @@
                     setTimeout(() => {
                         addMessage('Support', 'Ang SAMPANA MEDICLINIC MALOLOS po ay mayroong Clinical Laboratory, Xray, Ultrasound, 2D-Echo, ECG, at mga Doctors na maaaring magcheckup po sa inyo.  Kami po ay bukas mula 6AM-5PM (Monday-Saturday). Nandito lang po kami sa loob ng parking ng South Supermarket Malolos. May gusto po ba silang itanong?');
                     }, 1000);
+                // More than 3 stacks, the following message will be the default
                 } else {
                     // Default response for subsequent messages
                     setTimeout(() => {
