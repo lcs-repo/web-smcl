@@ -26,6 +26,7 @@
                 background-color: var(--primary-color);
                 padding: 1rem;
                 text-align: center;
+                margin-bottom: 0;
             }
 
             .logo-container {
@@ -52,6 +53,7 @@
                 color: #fff;
                 font-style: italic;
                 margin-top: 0.5rem;
+                margin-bottom: 0;
             }
 
             .home {
@@ -115,7 +117,7 @@
 
             .cta-button {
                 display: inline-block;
-                background-color: var(--accent-color);
+                background-color: var(--primary-color);
                 color: #fff;
                 padding: 12px 24px;
                 text-decoration: none;
@@ -146,6 +148,66 @@
                 nav ul li a:focus {
                     outline: none;
                 }
+            }
+
+            #chat-widget {
+                position: fixed;
+                bottom: 20px;
+                right: 20px;
+                width: 300px;
+                height: 400px;
+                border-radius: 15px;
+                background-color: white;
+                border: 1px solid #ccc;
+                transition: all 0.3s ease;
+                z-index: 1000;
+                box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            }
+
+            #chat-widget.minimized {
+                width: 100px;
+                height: 100px !important;
+                border-radius: 50%;
+                overflow: hidden;
+                bottom: 20px;
+                right: 20px;
+            }
+
+            #chat-header {
+                border-top-left-radius: 15px;
+                border-top-right-radius: 15px;
+                background-color: var(--primary-color);
+                color: rgb(255, 255, 255);
+                padding: 10px;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+            #chat-body {
+                display: flex;
+                flex-direction: column;
+                height: 340px;
+            }
+            .chat-icon {
+                display: none;
+                width: 100px;
+                height: 85px;
+                background-image: url('assets/images/chatus.png');
+                background-size: cover;
+                background-position: center;
+
+            }
+            #chat-widget.minimized .chat-icon {
+                display: block;
+            }
+            #chat-widget.minimized #chat-body,
+            #chat-widget.minimized .chat-title {
+                display: none;
+            }
+
+            html, body {
+                overflow-x: hidden;
             }
         </style>
     </head>
@@ -198,17 +260,32 @@
             </section>
             <section id="contact">
                 <h2>Contact Us / Book an Appointment</h2>
-                <p>Phone: 09627522727 / 09671934111</p>
-                <p>Facebook: Sampana Mediclinic and Laboratory</p>
-                <p>Email: smcl.malolos@gmail.com</p>
-                <p>Address: South Supermarket Parking - McArthur Highway, Bulihan, Malolos Bulacan</p>
+                <p><strong>Phone:</strong> 09627522727 / 09671934111</p>
+                <p><strong>Facebook:</strong> Sampana Mediclinic and Laboratory</p>
+                <p><strong>Email:</strong> smcl.malolos@gmail.com</p>
+                <p><strong>Address:</strong> South Supermarket Parking - McArthur Highway, Bulihan, Malolos Bulacan</p>
             </section>
         </main>
         <footer>
             <p>&copy; 2024 Sampana Mediclinic and Laboratory. All rights reserved.</p>
         </footer>
+        <div id="chat-widget" class="minimized">
+            <div id="chat-header">
+                <span class="chat-title">Chat with us</span>
+                <span class="chat-icon"></span>
+            </div>
+            <div id="chat-body">
+                <div id="chat-messages" style="flex-grow: 1; overflow-y: auto; padding: 10px;"></div>
+                <div id="chat-input" style="display: flex; padding: 10px">
+                    <input type="text" id="user-message" style="flex-grow: 1; margin-right: 10px;" placeholder="Type your message...">
+                    <button onclick="sendMessage()">Send</button>
+            </div>
+        </div>
     </body>
+
     <script>
+
+        // IMAGE SLIDER FUNCTIONALITY
         let currentSlide = 0;
         const slides = [
             'assets/images/B.jpg',
@@ -226,22 +303,26 @@
             'assets/images/D.jpg',
             'assets/images/E.jpg'
         ];
-
+        
+        // Updates the src attribute based on the index handed over by nextSlide()/prevS
         function showSlide(index) {
             const img = document.getElementById('slideshow-img');
             img.src = slides[index];
         }
 
+        // Clicked Next button, then calculates the index and hands it over to showSlide()
         function nextSlide() {
             currentSlide = (currentSlide + 1) % slides.length;
             showSlide(currentSlide);
         }
 
+        // Clicked Previous button, then Calculates the index and hands it over to showSlide()
         function prevSlide() {
             currentSlide = (currentSlide - 1 + slides.length) % slides.length;
             showSlide(currentSlide);
         }
-
+        
+        // Mobile UI, swipe feature for image slideshow
         document.addEventListener('DOMContentLoaded', () => {
             const slideshow = document.getElementById('slideshow');
             let startX;
@@ -259,5 +340,42 @@
                 }
             });
         })
+
+        // CHAT WIDGET FUNCTIONALITY
+        // Dom Element Selection through getting the each id
+        const chatWidget = document.getElementById('chat-widget');
+        const chatHeader = document.getElementById('chat-header');
+        const chatMessages = document.getElementById('chat-messages');
+        const userMessageInput = document.getElementById('user-message');
+
+        // Toggle Chat Widget Visibility
+        chatHeader.addEventListener('click', () => {
+            chatWidget.classList.toggle('minimized');
+        });
+
+        function sendMessage() {
+            const message = userMessageInput.value.trim();
+            if (message) {
+                addMessage('User', message);
+                userMessageInput.value = '';
+                // Simulate a response (replace this with actual backend integration)
+                setTimeout(() => {
+                    addMessage('Support', 'Thank you for your message.')
+                }, 1000);
+            }
+        }
+
+        function addMessage(sender, text) {
+            const messageElement = document.createElement('div');
+            messageElement.innerHTML = `<strong>${sender}:</strong> ${text}`;
+            chatMessages.appendChild(messageElement);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        userMessageInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                sendMessage()
+            }
+        });
     </script>
 </html>
