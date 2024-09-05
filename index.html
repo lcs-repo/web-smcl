@@ -162,6 +162,9 @@
                 transition: all 0.3s ease;
                 z-index: 1000;
                 box-shadow: 0 0 10px rgba(0,0,0,0.1);
+                display: flex;
+                flex-direction: column;
+                max-width: calc(100% - 40px);
             }
 
             #chat-widget.minimized {
@@ -187,8 +190,11 @@
             #chat-body {
                 display: flex;
                 flex-direction: column;
-                height: 340px;
+                flex-grow: 1;
+                overflow-y: auto;
+                overflow-x: hidden;
             }
+
             .chat-icon {
                 display: none;
                 width: 100px;
@@ -204,6 +210,64 @@
             #chat-widget.minimized #chat-body,
             #chat-widget.minimized .chat-title {
                 display: none;
+            }
+
+            #chat-messages {
+                display: flex;
+                flex-direction: column;
+                padding: 10px;
+            }
+
+            #chat-input {
+               display: flex; 
+               padding: 10px;
+               box-sizing: border-box;
+            }
+
+            .message {
+                max-width: 70%;
+                margin-bottom: 10px;
+                padding: 8px 12px;
+                border-radius: 18px;
+                line-height: 1.4;
+            }
+
+            .user-message {
+                align-self: flex-end;
+                background-color: var(--primary-color);
+                color: white;
+            }
+
+            .support-message {
+                align-self: flex-start;
+                background-color: #e0e0e0;
+                color: black;
+            }
+
+            .chat-input-field {
+                flex-grow: 1;
+                margin-right: 10px;
+                padding: 10px;
+                font-size: 16px;
+                border: 1px solid #ccc;
+                border-radius: 20px;
+                max-width: calc(100% - 100px);
+            }
+
+            .chat-send-button {
+                padding: 10px 20px;
+                font-size: 16px;
+                background-color: var(--primary-color);
+                color: white;
+                border: none;
+                border-radius: 20px;
+                cursor: pointer;
+                transition: background-color 0.3s ease;
+                white-space: nowrap;
+            }
+
+            .chat-send-button:hover {
+                background-color: #c0392b
             }
 
             html, body {
@@ -277,8 +341,8 @@
             <div id="chat-body">
                 <div id="chat-messages" style="flex-grow: 1; overflow-y: auto; padding: 10px;"></div>
                 <div id="chat-input" style="display: flex; padding: 10px">
-                    <input type="text" id="user-message" style="flex-grow: 1; margin-right: 10px;" placeholder="Type your message...">
-                    <button onclick="sendMessage()">Send</button>
+                    <input type="text" id="user-message" class="chat-input-field">
+                    <button onclick="sendMessage()" class="chat-send-button">Send</button>
             </div>
         </div>
     </body>
@@ -353,6 +417,7 @@
             chatWidget.classList.toggle('minimized');
         });
 
+        // 
         function sendMessage() {
             const message = userMessageInput.value.trim();
             if (message) {
@@ -365,13 +430,17 @@
             }
         }
 
+        // Add message stack based on the input of the 
         function addMessage(sender, text) {
             const messageElement = document.createElement('div');
-            messageElement.innerHTML = `<strong>${sender}:</strong> ${text}`;
+            messageElement.classList.add('message');
+            messageElement.classList.add(sender.toLowerCase() + '-message');
+            messageElement.textContent = text;
             chatMessages.appendChild(messageElement);
             chatMessages.scrollTop = chatMessages.scrollHeight;
         }
 
+        // This function always listen if there is an Enter keypress which will trigger sendMessage()
         userMessageInput.addEventListener('keypress', (e) => {
             if (e.key === 'Enter') {
                 sendMessage()
