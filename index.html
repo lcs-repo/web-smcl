@@ -417,16 +417,30 @@
             chatWidget.classList.toggle('minimized');
         });
 
-        // 
         function sendMessage() {
             const message = userMessageInput.value.trim();
             if (message) {
                 addMessage('User', message);
                 userMessageInput.value = '';
-                // Simulate a response (replace this with actual backend integration)
-                setTimeout(() => {
-                    addMessage('Support', 'Thank you for your message.')
-                }, 1000);
+                
+                // Check if this is the first message
+                if (chatMessages.children.length === 1) {
+                    setTimeout(() => {
+                        addMessage('Support', 'Thank you for your message po. Pwede po ba malaman ang pangalan at contact number po?');
+                    }, 1000);
+                } else if (chatMessages.children.length === 3 ) {
+                    setTimeout(() => {
+                        addMessage('Support', 'Automated message po ito, kapag po walang nagreply sa loob ng 2 mins. Magreply nalang po kami ng kasagutan sa number po ninyo. May karagdagang katanungan pa po sila?');
+                    }, 1000);
+                    setTimeout(() => {
+                        addMessage('Support', 'Ang SAMPANA MEDICLINIC MALOLOS po ay mayroong Clinical Laboratory, Xray, Ultrasound, 2D-Echo, ECG, at mga Doctors na maaaring magcheckup po sa inyo.  Kami po ay bukas mula 6AM-5PM (Monday-Saturday). Nandito lang po kami sa loob ng parking ng South Supermarket Malolos. May gusto po ba silang itanong?');
+                    }, 1000);
+                } else {
+                    // Default response for subsequent messages
+                    setTimeout(() => {
+                        addMessage('Support', 'Automated message po ito, kapag po walang nagreply sa loob ng 2 mins. Magreply nalang po kami ng kasagutan sa number po ninyo. May karagdagang katanungan pa po sila?');
+                    }, 1000);
+                }
             }
         }
 
