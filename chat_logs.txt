@@ -1,0 +1,26 @@
+Test write
+2024-09-06 00:15:55 | Session: session_1725580662307_djff1xp1u | User: Hi
+Test write
+2024-09-06 00:15:56 | Session: session_1725580662307_djff1xp1u | Support: Thank you for your message po. Pwede po ba malaman ang pangalan at contact number po?
+Test write
+2024-09-06 00:16:20 | Session: session_1725580662307_djff1xp1u | User: Lucas Sam 09123124141
+Test write
+2024-09-06 00:16:21 | Session: session_1725580662307_djff1xp1u | Support: Automated message po ito, kapag po walang nagreply sa loob ng 2 mins. Magreply nalang po kami ng kasagutan sa number po ninyo. May karagdagang katanungan pa po sila?
+Test write
+2024-09-06 00:16:21 | Session: session_1725580662307_djff1xp1u | Support: Ang SAMPANA MEDICLINIC MALOLOS po ay mayroong Clinical Laboratory, Xray, Ultrasound, 2D-Echo, ECG, at mga Doctors na maaaring magcheckup po sa inyo.  Kami po ay bukas mula 6AM-5PM (Monday-Saturday). Nandito lang po kami sa loob ng parking ng South Supermarket Malolos. May gusto po ba silang itanong?
+Test write
+2024-09-06 00:17:43 | Session: session_1725580662307_djff1xp1u | User: Hi
+Test write
+2024-09-06 00:17:44 | Session: session_1725580662307_djff1xp1u | Support: Thank you for your message po. Pwede po ba malaman ang pangalan at contact number po?
+Test write
+2024-09-06 00:19:02 | Session: session_1725581939833_85atyvotj | User: Hi
+Test write
+2024-09-06 00:19:03 | Session: session_1725581939833_85atyvotj | Support: Thank you for your message po. Pwede po ba malaman ang pangalan at contact number po?
+Test write
+2024-09-06 00:23:32 | Session: session_1725582207669_562u81su1 | User: SAMPPLE
+Test write
+2024-09-06 00:23:33 | Session: session_1725582207669_562u81su1 | Support: Thank you for your message po. Pwede po ba malaman ang pangalan at contact number po?
+Test write
+2024-09-06 00:23:48 | Session: session_1725582207669_562u81su1 | User: HI
+Test write
+2024-09-06 00:23:49 | Session: session_1725582207669_562u81su1 | Support: Thank you for your message po. Pwede po ba malaman ang pangalan at contact number po?

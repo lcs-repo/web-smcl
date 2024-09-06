@@ -202,8 +202,8 @@
                 background-image: url('assets/images/chatus.png');
                 background-size: cover;
                 background-position: center;
-
             }
+
             #chat-widget.minimized .chat-icon {
                 display: block;
             }
@@ -416,8 +416,11 @@
             chatWidget.classList.toggle('minimized');
         });
 
+        // 
         function sendMessage() {
+            // Gets the message from user and trims it
             const message = userMessageInput.value.trim();
+            
             if (message) {
                 addMessage('User', message);
                 userMessageInput.value = '';
@@ -446,6 +449,7 @@
         }
 
         // Add message stack based on the input of the 
+        // The input of sender is either User or Support with their respective texts
         function addMessage(sender, text) {
             const messageElement = document.createElement('div');
             messageElement.classList.add('message');
@@ -453,6 +457,9 @@
             messageElement.textContent = text;
             chatMessages.appendChild(messageElement);
             chatMessages.scrollTop = chatMessages.scrollHeight;
+
+            // Save message to server
+            saveMessageToServer(sender, text);
         }
 
         // This function always listen if there is an Enter keypress which will trigger sendMessage()
@@ -461,5 +468,31 @@
                 sendMessage()
             }
         });
+
+        // ARCHIVING CHATS FUNCTIONALITY
+        // Session ID generation: Creates a unique session id for each chat session
+        function generateSessionId() {
+            return 'session_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+        }
+
+        let sessionId = sessionStorage.getItem('chatSessionId');
+        if (!sessionId) {
+            sessionId = generateSessionId();
+            sessionStorage.setItem('chatSessionId', sessionId);
+        }
+
+        // A function to send chat message data to a server-side script for storage
+        function saveMessageToServer(sender, message) {
+            fetch('save_chat.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: `sessionId=${encodeURIComponent(sessionId)}&sender=${encodeURIComponent(sender)}&message=${encodeURIComponent(message)}`
+            })
+            .then(response => response.text())
+            .then(data => console.log(data))
+            .catch((error) => console.error('Error:', error));
+        }
     </script>
 </html>
