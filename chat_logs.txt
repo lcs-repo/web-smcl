@@ -24,3 +24,21 @@ Test write
 2024-09-06 00:23:48 | Session: session_1725582207669_562u81su1 | User: HI
 Test write
 2024-09-06 00:23:49 | Session: session_1725582207669_562u81su1 | Support: Thank you for your message po. Pwede po ba malaman ang pangalan at contact number po?
+Test write
+2024-09-06 02:35:39 | Session: session_1725580662307_djff1xp1u | User: Hi
+Test write
+2024-09-06 02:35:40 | Session: session_1725580662307_djff1xp1u | Support: Thank you for your message po. Pwede po ba malaman ang pangalan at contact number po?
+Test write
+2024-09-06 02:38:03 | Session: session_1725590275936_hgg9hrafc | User: SAMPLE ONLY
+Test write
+2024-09-06 02:38:04 | Session: session_1725590275936_hgg9hrafc | Support: Thank you for your message po. Pwede po ba malaman ang pangalan at contact number po?
+Test write
+2024-09-06 03:05:33 | Session: session_1725590275936_hgg9hrafc | User: Magandang umaga po, Mayroon po ba silang OBGYNE?
+Test write
+2024-09-06 03:05:34 | Session: session_1725590275936_hgg9hrafc | Support: Thank you for your message po. Pwede po ba malaman ang pangalan at contact number po?
+Test write
+2024-09-06 03:05:52 | Session: session_1725590275936_hgg9hrafc | User: Lucassam 1231298412
+Test write
+2024-09-06 03:05:53 | Session: session_1725590275936_hgg9hrafc | Support: Automated message po ito, kapag po walang nagreply sa loob ng 2 mins. Magreply nalang po kami ng kasagutan sa number po ninyo. May karagdagang katanungan pa po sila?
+Test write
+2024-09-06 03:05:53 | Session: session_1725590275936_hgg9hrafc | Support: Ang SAMPANA MEDICLINIC MALOLOS po ay mayroong Clinical Laboratory, Xray, Ultrasound, 2D-Echo, ECG, at mga Doctors na maaaring magcheckup po sa inyo.  Kami po ay bukas mula 6AM-5PM (Monday-Saturday). Nandito lang po kami sa loob ng parking ng South Supermarket Malolos. May gusto po ba silang itanong?
